@@ -29,3 +29,4 @@ To utilize this project, you need to have the following installed locally:
 * After the test execution it will execute Mochawesome html Report which can be accessed via link generated
 * Alternatively you can run tests in cypress user friendly runner with command: node_modules/.bin/cypress open
 * You can select individual test feature in the runner to execute
+* Currently tests are configured to run in CHROME browser, we can always confiure to different browsers
