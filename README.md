@@ -20,7 +20,7 @@ To utilize this project, you need to have the following installed locally:
 * node.js
 * VS Code
 
-## Useage:
+## Usage:
 * Open the WHICH project in VS Code
 * In terminal run the command to install Cypress: npm install cypress --save-dev
 
