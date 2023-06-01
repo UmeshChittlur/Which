@@ -14,6 +14,7 @@ Given('I navigate to Television page', () => {
     basePage.getAcceptCookies().should('not.be.visible')
     cy.getCookie('OptanonAlertBoxClosed').should('exist')
     cy.url().should('include', "/reviews/televisions")
+    basePage.getLoginText().should('contain', 'Log in')
     televisionPage.getTelevesionReviewsText().should('have.text', 'Television reviews')
 })
 

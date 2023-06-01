@@ -1,0 +1,30 @@
+name: Cypress Tests
+
+on: push
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      # Install NPM dependencies, cache them correctly
+      # and run all Cypress tests
+      - name: Install dependencies
+        run: npm install
+      - name: Cypress run
+        uses: cypress-io/github-action@v5
+        with:
+          spec: cypress/e2e/*.cy.js
+      - name: Upload screenshots
+        uses: actions/upload-artifact@v1
+        if: failure()
+        with:
+          name: screenshots
+          path: cypress/screenshots
+      - name: Upload videos
+        uses: actions/upload-artifact@v1
+        if: failure()
+        with:
+          name: videos
+          path: cypress/videos

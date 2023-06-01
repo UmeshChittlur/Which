@@ -16,8 +16,8 @@ class TelevisionPage {
         return cy.get("label[aria-label*='" + ScreenSize + "']")
     }
 
-    getBrands() {
-        return cy.get("span[class='sbui-1yiop82']")
+    getBrands(Brands) {
+        return cy.get("input[value='" + Brands + "'")
     }
 
     getScreenType(ScreenType) {
@@ -67,6 +67,16 @@ class TelevisionPage {
     getCompareProductModelPopUp() {
         return cy.get("section[class*='sbui-1uttz6j'] p[data-testid*='compact']")
     }
+
+    getMinPriceDropdown() {
+        return cy.get("select[name='Price-Min']")
+    }
+
+    getMaxPriceDropdown() {
+        return cy.get("select[name='Price-Max']")
+    }
+
+
 
 }
 
