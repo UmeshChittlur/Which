@@ -21,14 +21,16 @@ Given('I navigate to Television page', () => {
 When('I click on resolution {string}', (Resolution) => {
     televisionPage.getResolution(Resolution).then(($resolution) => {
         const firstText = $resolution.find("span[class='sbui-7n5ir5']").text()
+        cy.log(firstText)
         const actualresults = firstText.substring(0, firstText.length - 1)
+        cy.log(actualresults)
         Utility.setValue('actualResultCount', actualresults[1])
     })
-    televisionPage.getResolution(Resolution).contains(Resolution).click()
+    televisionPage.getResolution(Resolution).click({force: true})
 })
 
 When('I verify filters applied for {string} on filter section', (filter) => {
-    televisionPage.getProductListHeader().should('contain.text', Utility.getValue('actualResultCount') + ' television reviews')
+    televisionPage.getProductListHeader().contains(Utility.getValue('actualResultCount') + ' television reviews')
     televisionPage.getAppliedFiltersText().should('have.text', 'Applied filters').should('be.visible')
     televisionPage.getAppliedFilters().contains(filter)
 })

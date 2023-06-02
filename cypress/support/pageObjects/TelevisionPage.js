@@ -25,7 +25,7 @@ class TelevisionPage {
     }
 
     getResolution(Resolution) {
-        return cy.get("label[aria-label*='" + Resolution + "']")
+        return cy.get("input[value='" + Resolution + "']")
     }
 
     getAppliedFiltersText() {
