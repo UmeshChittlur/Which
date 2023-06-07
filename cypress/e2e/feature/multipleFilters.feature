@@ -4,7 +4,7 @@ Feature: Testing clear all filters functionality for Television page
       Given I navigate to Television page
       When I click on Screen size "55-60"
       And I click on Screen type "OLED"
-      And I click on resolution "4K Ultra-HD"
+      And I click on resolution type "4K Ultra-HD"
       Then I verify all filters are applied in Applied filter section
       And I clear all filters
       Then I verify Applied filter section disappears

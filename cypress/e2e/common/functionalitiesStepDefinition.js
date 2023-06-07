@@ -1,13 +1,12 @@
 import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor"
 import TelevisionPage from "../../support/pageObjects/TelevisionPage"
-import Utility from "../../support/Utility"
 
 const televisionPage = new TelevisionPage()
 
 When('I select Minimum {string} and Maximum {string} price from Price filter section', (minPrice, maxPrice) => {
     televisionPage.getMinPriceDropdown().select(minPrice).should('contain', minPrice)
     televisionPage.getMaxPriceDropdown().select(maxPrice).should('contain', maxPrice)
-    cy.wait(3000)
+    cy.waitForGetApi('view?xai=*', 'productLoad')
 })
 
 When('I verify in Applied filter section for Minimum {string} and Maximum {string} price', (minPrice, maxPrice) => {

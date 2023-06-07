@@ -12,16 +12,16 @@ class TelevisionPage {
         return cy.get("section[data-testid='product-list-header'] p")
     }
 
-    getScreenSize(ScreenSize) {
-        return cy.get("label[aria-label*='" + ScreenSize + "']")
+    getScreenSize(screenSize) {
+        return cy.get("input[value='" + screenSize + "']")
     }
 
     getBrands(Brands) {
-        return cy.get("input[value='" + Brands + "'")
+        return cy.get("input[value='" + Brands + "']")
     }
 
-    getScreenType(ScreenType) {
-        return cy.get("label[aria-label*='" + ScreenType + "']")
+    getScreenType(screenType) {
+        return cy.get("input[value='" + screenType + "']")
     }
 
     getResolution(Resolution) {
@@ -75,8 +75,6 @@ class TelevisionPage {
     getMaxPriceDropdown() {
         return cy.get("select[name='Price-Max']")
     }
-
-
 
 }
 

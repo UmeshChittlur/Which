@@ -19,14 +19,13 @@ Given('I navigate to Television page', () => {
 })
 
 When('I click on resolution {string}', (Resolution) => {
-    televisionPage.getResolution(Resolution).then(($resolution) => {
-        const firstText = $resolution.find("span[class='sbui-7n5ir5']").text()
-        cy.log(firstText)
-        const actualresults = firstText.substring(0, firstText.length - 1)
-        cy.log(actualresults)
-        Utility.setValue('actualResultCount', actualresults[1])
+    televisionPage.getResolution(Resolution).invoke('attr', 'aria-label').then(($text) => {
+        const firstText = $text.valueOf('aria-label').trim().split(",")
+        const actualresults = firstText[1].trim().split(" ")[0]
+        Utility.setValue('actualResultCount', actualresults)
     })
-    televisionPage.getResolution(Resolution).click({force: true})
+    televisionPage.getResolution(Resolution).click({ force: true })
+    cy.log(Utility.getValue('actualResultCount'))
 })
 
 When('I verify filters applied for {string} on filter section', (filter) => {
@@ -37,7 +36,6 @@ When('I verify filters applied for {string} on filter section', (filter) => {
 
 
 Then('I verify resolution {string} results are displayed for Television', (Resolution) => {
-    cy.wait(2000)
     cy.get('[data-testid="reviews-products"] [class="Products_productItem__4osTI"]').each(($el, index, $list) => {
         const actualText = $el.find('[class ="ProductCardTags__list--1mrk_ ProductCard__tags--2eWqG"] li').text()
         expect(actualText.includes(Resolution)).to.be.true
