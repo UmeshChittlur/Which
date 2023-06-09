@@ -25,9 +25,9 @@ Cypress.Commands.add('sortByDropdown', (label) => {
     }
 })
 
-Cypress.Commands.add('waitForPostApi', (api, apiAlias) => {
+Cypress.Commands.add('waitForGetApi', (api, apiAlias) => {
     cy.intercept({
-        method: 'POST',
+        method: 'GET',
         url: api
     }).as(apiAlias)
     cy.wait([`@${apiAlias}`])

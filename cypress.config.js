@@ -29,7 +29,7 @@ module.exports = defineConfig({
     },
 
     specPattern: 'cypress/e2e/**/*.feature',
-    excludeSpecPattern: 'cypress/e2e/**/functionalities.feature',
+    numTestsKeptInMemory: 0,
     viewportHeight: 950,
     viewportWidth: 1350,
     defaultCommandTimeout: 15000,

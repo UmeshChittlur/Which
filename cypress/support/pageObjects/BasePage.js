@@ -8,6 +8,10 @@ class BasePage {
         return cy.get("button[class='whi-banner-close']")
     }
 
+    getLoginText() {
+        return cy.get("a[href='/login']")
+    }
+
 }
 
 export default BasePage
